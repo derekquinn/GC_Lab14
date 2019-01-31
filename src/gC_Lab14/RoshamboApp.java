@@ -20,6 +20,11 @@ public class RoshamboApp {
 			System.out.println("Con quien quieres jugar? Chupacabra o Loco Lucy?");
 			oppName = scnr.nextLine();
 
+			while (!(oppName.equalsIgnoreCase("Chupacabra") || oppName.equalsIgnoreCase("Loco Lucy"))) {
+				System.err.println("Chupacabra y Loco Lucy están deseando jugar, por favor elija uno de ellos");
+				oppName = scnr.nextLine();
+			}
+
 // passing scanner over when making a new console player so now it has access to scanner
 
 			Player human = new ConsolePlayer(scnr, playerName);
