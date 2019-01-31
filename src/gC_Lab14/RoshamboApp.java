@@ -6,7 +6,15 @@ public class RoshamboApp {
 
 	public static void main(String[] args) {
 
+		String playerName;
+
 		Scanner scnr = new Scanner(System.in);
+
+		System.out.println("Cual es tu nombre? ");
+		playerName = scnr.nextLine(); 
+		
+		
+		
 
 // passing scanner over when making a new console player so now it has access to scanner
 		Player human = new ConsolePlayer(scnr, "Tio");

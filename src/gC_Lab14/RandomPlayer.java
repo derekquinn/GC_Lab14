@@ -1,5 +1,7 @@
 package gC_Lab14;
 
+import java.util.Random;
+
 public class RandomPlayer extends Player {
 
 	// using the enumerator above
@@ -23,8 +25,23 @@ public class RandomPlayer extends Player {
 	@Override
 	public Roshambo generateRoshambo() {
 
-		// we should return a random result from the Roshambo enumerator
-		return null;
+		Random rand = new Random();
+
+		int randomThrow = rand.nextInt(3);
+
+		if (randomThrow == 0) {
+			return Roshambo.ROCK;
+		}
+		if (randomThrow == 1) {
+			return Roshambo.PAPEL;
+
+		}
+		if (randomThrow == 2) {
+			return Roshambo.TIJERAS;
+
+		}
+		return generateRoshambo();
+
 	}
 
 }
