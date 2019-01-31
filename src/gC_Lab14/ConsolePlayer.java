@@ -30,6 +30,7 @@ public class ConsolePlayer extends Player {
 		} else {
 			System.out.println("\n");
 			System.err.println("Esa entrada no fue válida, por favor intente de nuevo.");
+			System.out.println("\n");
 			// using recursion to ask again if user doesnt enter R P or T
 			return generateRoshambo();
 		}

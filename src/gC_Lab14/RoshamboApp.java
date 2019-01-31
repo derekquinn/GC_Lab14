@@ -9,13 +9,19 @@ public class RoshamboApp {
 		String playerName;
 		String oppName;
 		String otraVez = "yes";
+		int lucyWin = 0;
+		int lucyLoss = 0;
+		int chupaWin = 0;
+		int chupaLoss = 0;
+		int humanWin = 0;
+		int humanLoss = 0;
 
 		Scanner scnr = new Scanner(System.in);
 
 		System.out.println("Cual es tu nombre? ");
 		playerName = scnr.nextLine();
 
-		while (otraVez.equalsIgnoreCase("yes")) {
+		while (otraVez.startsWith("y")) {
 
 			System.out.println("Con quien quieres jugar? Chupacabra o Loco Lucy?");
 			oppName = scnr.nextLine();
@@ -43,20 +49,40 @@ public class RoshamboApp {
 
 				if (humanChoice == Roshambo.PAPEL && randomChoice == Roshambo.TIJERAS) {
 					System.out.println("Loco Lucy es el ganador!");
+					lucyWin++;
+					humanLoss++;
+
 				} else if (humanChoice == Roshambo.PAPEL && randomChoice == Roshambo.ROCK) {
 					System.out.println(playerName + " es el ganador!");
+					humanWin++;
+					lucyLoss++;
+
 				} else if (humanChoice == Roshambo.PAPEL && randomChoice == Roshambo.PAPEL) {
 					System.out.println("No hay ganador!");
+
 				} else if (humanChoice == Roshambo.ROCK && randomChoice == Roshambo.TIJERAS) {
 					System.out.println(playerName + " es el ganador!");
+					humanWin++;
+					lucyLoss++;
+
 				} else if (humanChoice == Roshambo.ROCK && randomChoice == Roshambo.PAPEL) {
 					System.out.println("Loco Lucy es el ganador!");
+					lucyWin++;
+					humanLoss++;
+
 				} else if (humanChoice == Roshambo.ROCK && randomChoice == Roshambo.ROCK) {
 					System.out.println("No hay ganador!");
+
 				} else if (humanChoice == Roshambo.TIJERAS && randomChoice == Roshambo.ROCK) {
 					System.out.println("Loco Lucy es el ganador!");
+					lucyWin++;
+					humanLoss++;
+
 				} else if (humanChoice == Roshambo.TIJERAS && randomChoice == Roshambo.PAPEL) {
 					System.out.println(playerName + " es el ganador!");
+					humanWin++;
+					lucyLoss++;
+
 				} else if (humanChoice == Roshambo.TIJERAS && randomChoice == Roshambo.TIJERAS) {
 					System.out.println("No hay ganador!");
 				}
@@ -79,8 +105,14 @@ public class RoshamboApp {
 
 				if (humanChoice == Roshambo.PAPEL) {
 					System.out.println(playerName + " es el ganador!");
+					humanWin++;
+					chupaLoss++;
+
 				} else if (humanChoice == Roshambo.TIJERAS) {
 					System.out.println("Chupacabra es el ganador!");
+					chupaWin++;
+					humanLoss++;
+
 				} else if (humanChoice == Roshambo.ROCK) {
 					System.out.println("No hay ganador!");
 				}
@@ -89,6 +121,15 @@ public class RoshamboApp {
 
 			System.out.println("Quieres jugar un otra vez?");
 			otraVez = scnr.nextLine();
+
+			if (otraVez.startsWith("n")) {
+				
+				System.out.println("Gracias para tu jugando! ");
+				System.out.println("=================STANDINGS==============");
+				System.out.println(playerName + " record: " + humanWin + " - " + humanLoss);
+				System.out.println("Chupacabra record: " + humanWin + " - " + humanLoss);
+				System.out.println("Loco lucy record: " + lucyWin +" - " + lucyLoss);
+			}
 
 		}
 	}
